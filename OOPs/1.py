@@ -12,7 +12,24 @@ class Employee:
     def c(self):
         self.d=Employee.a+self.b
         return self.d 
+    @classmethod
+    def set_raise_amt(cls,amount):
+        cls.raise_amt=amount
+    @classmethod
+    def from_string(cls,emp_str):
+        first,last,pay=emp_str.split('-')
+        return cls(first,last,pay)
+    @staticmethod
+    def is_workday(day):
+        if day.weekday() == 5 or  day.weekday() == 6:
+            return False
+        return True
+        
+import datetime
+my_date = datetime.date(2026,8,11)
 
+print(Employee.is_workday(my_date))
+ 
       
 
 
@@ -21,7 +38,7 @@ emp_1 = Employee('Vekhyat','Jain',100000)
 emp_2 = Employee('Test','User',1000)
 # emp_1.a=3
 # Employee.a=5
-# print(emp_1)
+print(emp_1)
 # print(emp_2)
 # print()
 # # emp_1.first= 'Vekhyat'
